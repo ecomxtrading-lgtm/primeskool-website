@@ -16,27 +16,60 @@ import Packages from "@/components/Packages";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import InView from "@/components/InView";
 
 const Index = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      <Hero />
-      <Marquee />
-      <Features />
-      <WhyPrimeSkool />
-      <EntrepreneurVision />
-      <ProductDiscovery />
-      <AboutCommunity />
-      <Curriculum />
-      <SuccessStories />
-      <Consultation />
-      <SupportProcess />
-      <LeadMagnet />
-      <CaseLibrary />
-      <Packages />
-      <FAQ />
-      <FinalCTA />
+      <InView>
+        <Hero />
+      </InView>
+      <InView>
+        <Marquee />
+      </InView>
+      <InView>
+        <Features />
+      </InView>
+      <InView>
+        <WhyPrimeSkool />
+      </InView>
+      <InView>
+        <EntrepreneurVision />
+      </InView>
+      <InView>
+        <ProductDiscovery />
+      </InView>
+      <InView>
+        <AboutCommunity />
+      </InView>
+      <InView>
+        <Curriculum />
+      </InView>
+      <InView>
+        <SuccessStories />
+      </InView>
+      <InView>
+        <Consultation />
+      </InView>
+      <InView>
+        <SupportProcess />
+      </InView>
+      <InView>
+        <LeadMagnet />
+      </InView>
+      <InView>
+        <CaseLibrary />
+      </InView>
+      <InView>
+        <Packages />
+      </InView>
+      <InView>
+        <FAQ />
+      </InView>
+      <InView>
+        <FinalCTA />
+      </InView>
       <Footer />
     </div>
   );
