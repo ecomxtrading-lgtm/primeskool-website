@@ -5,9 +5,15 @@ type InViewProps = {
   children: React.ReactNode;
   className?: string;
   delayMs?: number;
+  durationMs?: number;
 };
 
-const InView: React.FC<InViewProps> = ({ children, className, delayMs = 0 }) => {
+const InView: React.FC<InViewProps> = ({
+  children,
+  className,
+  delayMs = 0,
+  durationMs = 900
+}) => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [visible, setVisible] = useState(false);
 
@@ -33,11 +39,11 @@ const InView: React.FC<InViewProps> = ({ children, className, delayMs = 0 }) => 
     <div
       ref={ref}
       className={cn(
-        "transition-all duration-700 ease-out",
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6",
+        "will-change-transform transition-all ease-out",
+        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10",
         className
       )}
-      style={{ transitionDelay: `${delayMs}ms` }}
+      style={{ transitionDelay: `${delayMs}ms`, transitionDuration: `${durationMs}ms` }}
     >
       {children}
     </div>
