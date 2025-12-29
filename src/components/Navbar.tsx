@@ -64,7 +64,7 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8 ml-6">
+          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
             {navLinks.map((link) => (
               <a
                 key={link.href}
@@ -86,7 +86,7 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("#consultation");
             }}
-            className="hidden md:inline-flex btn-primary text-sm px-6 py-2.5 ml-auto"
+            className="hidden md:inline-flex btn-primary text-sm px-6 py-2.5"
           >
             Ücretsiz Danışmanlık
           </a>
