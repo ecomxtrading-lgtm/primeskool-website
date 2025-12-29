@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BookOpen, ArrowRight, Check } from "lucide-react";
 import redhearImage from "../../images/redhear.webp";
+import { supabase } from "@/lib/supabase";
 
 const LeadMagnet = () => {
   const [formData, setFormData] = useState({
@@ -14,14 +15,34 @@ const LeadMagnet = () => {
   const [showKvkkModal, setShowKvkkModal] = useState(false);
   const [showCommsModal, setShowCommsModal] = useState(false);
   const [checkboxError, setCheckboxError] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!kvkkAccepted || !commsAccepted) {
       setCheckboxError(true);
       return;
     }
     setCheckboxError(false);
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const { error } = await supabase.from("student").insert({
+      name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      kvkk_accepted: kvkkAccepted,
+      comms_accepted: commsAccepted,
+    });
+
+    if (error) {
+      setSubmitError("Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    setIsSubmitting(false);
     setIsSubmitted(true);
   };
 
@@ -179,10 +200,17 @@ const LeadMagnet = () => {
                   </p>
                 )}
               </div>
-                  <button type="submit" className="btn-primary w-full group">
-                    Ücretsiz Master Class Eğitimini Al
-                    <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>                  
+              {submitError && (
+                <p className="text-sm text-red-500">{submitError}</p>
+              )}
+              <button
+                type="submit"
+                className="btn-primary w-full group disabled:opacity-70 disabled:cursor-not-allowed"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? "Gönderiliyor..." : "Ücretsiz Master Class Eğitimini Al"}
+                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>                  
                 </form>
               ) : (
                 <div className="text-center p-6 glass-card bg-accent/10">
