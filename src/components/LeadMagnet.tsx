@@ -9,10 +9,19 @@ const LeadMagnet = () => {
     whatsapp: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [kvkkAccepted, setKvkkAccepted] = useState(false);
+  const [commsAccepted, setCommsAccepted] = useState(false);
+  const [showKvkkModal, setShowKvkkModal] = useState(false);
+  const [showCommsModal, setShowCommsModal] = useState(false);
+  const [checkboxError, setCheckboxError] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
+    if (!kvkkAccepted || !commsAccepted) {
+      setCheckboxError(true);
+      return;
+    }
+    setCheckboxError(false);
     setIsSubmitted(true);
   };
 
@@ -117,6 +126,58 @@ const LeadMagnet = () => {
                     }
                     className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:border-accent focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
                   />
+              <div className="space-y-3">
+                <label className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    checked={kvkkAccepted}
+                    onChange={(e) => setKvkkAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 accent-accent"
+                  />
+                  <span
+                    className={`text-sm ${
+                      checkboxError && !kvkkAccepted ? "text-red-500" : "text-orange-400"
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setShowKvkkModal(true)}
+                      className="text-blue-400 underline mr-1"
+                    >
+                      Aydınlatma Metni
+                    </button>
+                    ’ni okudum, kabul ediyorum.
+                  </span>
+                </label>
+
+                <label className="flex items-start gap-3">
+                  <input
+                    type="checkbox"
+                    checked={commsAccepted}
+                    onChange={(e) => setCommsAccepted(e.target.checked)}
+                    className="mt-1 h-4 w-4 accent-accent"
+                  />
+                  <span
+                    className={`text-sm ${
+                      checkboxError && !commsAccepted ? "text-red-500" : "text-orange-400"
+                    }`}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setShowCommsModal(true)}
+                      className="text-blue-400 underline mr-1"
+                    >
+                      Ticari İleti Onayı
+                    </button>
+                    ’nı okudum, kabul ediyorum.
+                  </span>
+                </label>
+                {checkboxError && (
+                  <p className="text-sm text-red-500">
+                    Lütfen gerekli onay kutularını işaretleyin.
+                  </p>
+                )}
+              </div>
                   <button type="submit" className="btn-primary w-full group">
                     Ücretsiz Master Class Eğitimini Al
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -137,6 +198,68 @@ const LeadMagnet = () => {
           </div>
         </div>
       </div>
+
+      {/* KVKK Modal */}
+      {showKvkkModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+          <div className="max-w-3xl w-full bg-background rounded-2xl border border-border shadow-xl p-6 space-y-4 overflow-y-auto max-h-[80vh]">
+            <h3 className="text-lg font-semibold">Aydınlatma Metni</h3>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <p>
+                Prime Skool (“Veri Sorumlusu”) tarafından; ad-soyad, telefon numarası ve e-posta adresimden oluşan kişisel verilerimin, yalnızca aşağıdaki amaçlarla işlenmesine;
+              </p>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Eğitim kayıt işlemlerinin yürütülmesi,</li>
+                <li>Eğitim ve organizasyon duyuruları, hatırlatma ve bilgilendirme amaçlı iletişim kurulması,</li>
+                <li>İlgili süreçlere dair geri dönüş yapılması</li>
+              </ul>
+              <p>
+                amaçlarıyla 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) Madde 5/1 uyarınca, özgür irademle, bilgilendirilmeye dayalı olarak açıkça rıza veriyorum.
+              </p>
+              <p>Kişisel Verileri Koruma Kurumu</p>
+              <p>
+                KVKK kapsamında; kişisel verilerime ilişkin olarak,
+                verilerimin işlenip işlenmediğini öğrenme, işlenmişse amacını öğrenme, yanlış işlenmişse düzeltme talep etme, verilerin silinmesini veya yok edilmesini isteme, işlemenin sınırlandırılmasını talep etme, 5/1 maddesine dayalı verdiğim açık rızayı geri alma haklarına sahip olduğumu ve taleplerimi iletisim@primeskool.com adresine yazı ile iletebileceğimi anladım ve kabul ediyorum.
+              </p>
+              <p>Bu metni okudum, anladım ve onaylıyorum.</p>
+            </div>
+            <div className="flex justify-end">
+              <button
+                onClick={() => setShowKvkkModal(false)}
+                className="btn-secondary"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Ticari İleti Modal */}
+      {showCommsModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-4">
+          <div className="max-w-3xl w-full bg-background rounded-2xl border border-border shadow-xl p-6 space-y-4 overflow-y-auto max-h-[80vh]">
+            <h3 className="text-lg font-semibold">Ticari İleti Onayı</h3>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <p>
+                Prime Skool tarafından; eğitim duyuruları dışında kampanya, reklam ve promosyon amaçlı mesajlar, bilgilendirme ve tanıtım içerikleri, e-posta, SMS, WhatsApp ve diğer dijital iletişim kanalları üzerinden ticari elektronik iletiler gönderilmesi amacıyla kişisel verilerimin işlenmesine ve benimle iletişime geçilmesine özgür irademle açık rıza veriyorum.
+              </p>
+              <p>
+                Bu onayı dilediğim zaman, hiçbir gerekçe göstermeden geri çekme hakkına sahip olduğumu; iptal talebimi iletisim@primeskool.com adresine ileterek ya da gelen iletilerdeki çıkış/iptal seçeneklerini kullanarak yapabileceğimi anladım.
+              </p>
+              <p>“Pazarlama ve ticari ileti gönderimine onay veriyorum.”</p>
+            </div>
+            <div className="flex justify-end">
+              <button
+                onClick={() => setShowCommsModal(false)}
+                className="btn-secondary"
+              >
+                Kapat
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
