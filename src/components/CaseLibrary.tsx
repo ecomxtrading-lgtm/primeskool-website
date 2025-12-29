@@ -54,7 +54,7 @@ const CaseLibrary = () => {
                   <img
                     src={growthImage}
                     alt="Prime Skool case growth görseli"
-                    className="absolute inset-0 h-full w-full object-contain"
+                    className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
                 )}
@@ -62,7 +62,7 @@ const CaseLibrary = () => {
                   <img
                     src={redwoodImage}
                     alt="Prime Skool case redwood görseli"
-                    className="absolute inset-0 h-full w-full object-contain"
+                    className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
                 )}
@@ -70,7 +70,7 @@ const CaseLibrary = () => {
                   <img
                     src={conceptImage}
                     alt="Prime Skool case concept görseli"
-                    className="absolute inset-0 h-full w-full object-contain"
+                    className="absolute inset-0 h-full w-full object-cover"
                     loading="lazy"
                   />
                 )}
