@@ -1,6 +1,6 @@
-import { Zap, TrendingUp, Radar } from "lucide-react";
+import { Zap, TrendingUp } from "lucide-react";
 import DuotoneIcon from "./ui/DuotoneIcon";
-import ImagePlaceholder from "./ui/ImagePlaceholder";
+import productSearchImage from "../../images/product-search .webp";
 
 const ProductDiscovery = () => {
   return (
@@ -8,7 +8,7 @@ const ProductDiscovery = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 order-2 lg:order-1">
             <div>
               <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">
                 İYİ ÜRÜN PARA KAZANDIRIR
@@ -45,14 +45,16 @@ const ProductDiscovery = () => {
             </div>
           </div>
 
-          {/* Image Placeholder */}
-          <div className="animate-slide-in-right">
-            <ImagePlaceholder
-              id="IMG-04"
-              ratio="1:1"
-              icon={Radar}
-              brief="Radar, sinyal dalgaları, küçük veri noktaları, yükselen trend çizgisi — erken sinyaller / keşif / fırsat"
-            />
+          {/* Image */}
+          <div className="animate-slide-in-right order-1 lg:order-2">
+            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-lg aspect-square">
+              <img
+                src={productSearchImage}
+                alt="Prime Skool ürün araştırma görseli"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>

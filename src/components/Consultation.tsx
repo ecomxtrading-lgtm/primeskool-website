@@ -1,6 +1,7 @@
 import { MapPin, Rocket, Settings, ArrowRight, Route } from "lucide-react";
 import DuotoneIcon from "./ui/DuotoneIcon";
 import ImagePlaceholder from "./ui/ImagePlaceholder";
+import roadmapImage from "../../images/roadmap.webp";
 
 const steps = [
   {
@@ -23,7 +24,7 @@ const Consultation = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 order-2 lg:order-2">
             <div>
               <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">
                 BİREBİR DANIŞMANLIK
@@ -56,14 +57,16 @@ const Consultation = () => {
             </button>
           </div>
 
-          {/* Image Placeholder */}
-          <div className="animate-slide-in-right">
-            <ImagePlaceholder
-              id="IMG-07"
-              ratio="1:1"
-              icon={Route}
-              brief="Takvim + roadmap + hedef ikonları, 3 adımlı plan hissi — kişisel yol haritası / plan"
-            />
+          {/* Image */}
+          <div className="order-1 lg:order-1 animate-slide-in-right">
+            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-lg aspect-square">
+              <img
+                src={roadmapImage}
+                alt="Prime Skool yol haritası görseli"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>

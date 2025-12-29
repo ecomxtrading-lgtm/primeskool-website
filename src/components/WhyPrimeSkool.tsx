@@ -1,6 +1,7 @@
 import { Eye, BarChart3, Users, UserCheck, Network } from "lucide-react";
 import DuotoneIcon from "./ui/DuotoneIcon";
 import ImagePlaceholder from "./ui/ImagePlaceholder";
+import nedenPrimeImage from "../../images/neden-prime.webp";
 
 const reasons = [
   {
@@ -34,18 +35,20 @@ const WhyPrimeSkool = () => {
     <section className="section-spacing">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image Placeholder */}
-          <div className="order-2 lg:order-1 animate-slide-in-left">
-            <ImagePlaceholder
-              id="IMG-03"
-              ratio="4:3"
-              icon={Network}
-              brief="3D düğümler/bağlantılar, network hissi veya soyut control center — sistem + topluluk + strateji"
-            />
+          {/* Image */}
+          <div className="order-1 lg:order-1 animate-slide-in-left">
+            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-lg lg:aspect-[4/3]">
+              <img
+                src={nedenPrimeImage}
+                alt="Prime Skool - neden prime görseli"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           {/* Content */}
-          <div className="order-1 lg:order-2 space-y-8">
+          <div className="order-2 lg:order-2 space-y-8">
             <div>
               <h2 className="heading-section mb-4">
                 NEDEN <span className="text-accent">PRIME SKOOL?</span>

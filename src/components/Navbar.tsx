@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "../../images/logo.svg";
 
 const navLinks = [
   { label: "Ana Sayfa", href: "#hero" },
@@ -29,6 +30,8 @@ const Navbar = () => {
     }
   };
 
+  const logoSizeClass = isScrolled ? "h-8 md:h-10" : "h-16 md:h-20";
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -37,8 +40,12 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <div className="w-full max-w-full px-4 md:px-6">
+        <div
+          className={`flex items-center gap-4 md:gap-6 ${
+            isScrolled ? "h-[55px]" : "py-4 md:py-5"
+          }`}
+        >
           {/* Logo */}
           <a
             href="#hero"
@@ -46,27 +53,17 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("#hero");
             }}
-            className="text-xl md:text-2xl font-bold tracking-tight"
+            className={`flex items-center ${isScrolled ? "" : "ml-3 md:ml-6"}`}
+            aria-label="Prime Skool Ana Sayfa"
           >
-            Prime <span className="text-accent">Skool</span>
+            <img
+              src={logo}
+              alt="Prime Skool logo"
+              className={`w-auto transition-all duration-300 ${logoSizeClass}`}
+            />
           </a>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                onClick={(e) => {
-                  e.preventDefault();
-                  scrollToSection(link.href);
-                }}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
 
           {/* CTA Button */}
           <a
@@ -75,7 +72,7 @@ const Navbar = () => {
               e.preventDefault();
               scrollToSection("#consultation");
             }}
-            className="hidden md:inline-flex btn-primary text-sm px-6 py-2.5"
+            className="hidden md:inline-flex btn-primary text-sm px-6 py-2.5 ml-auto"
           >
             Ücretsiz Danışmanlık
           </a>
@@ -83,7 +80,7 @@ const Navbar = () => {
           {/* Mobile Menu Toggle */}
           <button
             onClick={() => setIsMobileOpen(!isMobileOpen)}
-            className="md:hidden p-2 text-foreground"
+            className="md:hidden p-2 text-foreground ml-auto"
             aria-label="Toggle menu"
           >
             {isMobileOpen ? <X size={24} /> : <Menu size={24} />}

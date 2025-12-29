@@ -35,17 +35,20 @@ const Packages = () => {
           {packages.map((pkg, index) => (
             <div
               key={pkg.title}
-              className={`glass-card p-8 text-center animate-fade-in ${
+              className={`glass-card p-8 text-center animate-fade-in h-full flex flex-col ${
                 pkg.featured ? "border-accent/30" : ""
               }`}
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {pkg.featured && (
-                <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full mb-4">
-                  Popüler
-                </span>
-              )}
-              
+              {/* Sabit badge alanı: yükseklik eşit olsun */}
+              <div className="h-9 mb-4 flex items-center justify-center text-white text-sm font-semibold">
+                {pkg.featured && (
+                  <span className="inline-block px-3 py-1.5 bg-accent/10 text-white rounded-full">
+                    Popüler
+                  </span>
+                )}
+              </div>
+
               <div className="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-6">
                 <pkg.icon className="w-8 h-8 text-accent" />
               </div>
@@ -53,14 +56,16 @@ const Packages = () => {
               <h3 className="heading-card mb-2">{pkg.title}</h3>
               <p className="text-muted-foreground mb-6">{pkg.description}</p>
 
-              <button
-                className={`w-full group ${
-                  pkg.featured ? "btn-primary" : "btn-secondary"
-                }`}
-              >
-                {pkg.cta}
-                <ArrowRight className="ml-2 w-5 h-5 inline-block group-hover:translate-x-1 transition-transform" />
-              </button>
+              <div className="mt-auto">
+                <button
+                  className={`w-full group ${
+                    pkg.featured ? "btn-primary" : "btn-secondary"
+                  }`}
+                >
+                  {pkg.cta}
+                  <ArrowRight className="ml-2 w-5 h-5 inline-block group-hover:translate-x-1 transition-transform" />
+                </button>
+              </div>
             </div>
           ))}
         </div>

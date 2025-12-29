@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BookOpen, ArrowRight, Check } from "lucide-react";
+import redhearImage from "../../images/redhear.webp";
 
 const LeadMagnet = () => {
   const [formData, setFormData] = useState({
@@ -20,8 +21,17 @@ const LeadMagnet = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="glass-card p-8 md:p-12 max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 items-center">
-            {/* E-Book Cover Placeholder */}
+            {/* E-Book Cover */}
             <div className="relative overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-secondary/80 to-secondary/40 aspect-[3/4]">
+              {/* Background image */}
+              <img
+                src={redhearImage}
+                alt="Prime Skool e-kitap kapağı"
+                className="absolute inset-0 h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-black/60 pointer-events-none" />
+
               {/* Decorative elements */}
               <div className="absolute inset-0 pointer-events-none">
                 <div className="absolute -top-10 -right-10 w-40 h-40 bg-accent/15 blur-3xl rounded-full" />

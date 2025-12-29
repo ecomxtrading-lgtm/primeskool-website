@@ -1,4 +1,7 @@
 import { TrendingUp, Target, Calendar, ArrowUpRight } from "lucide-react";
+import growthImage from "../../images/growth.webp";
+import redwoodImage from "../../images/redwood.webp";
+import conceptImage from "../../images/concept.webp";
 
 const cases = [
   {
@@ -47,22 +50,37 @@ const CaseLibrary = () => {
             >
               {/* Case thumbnail placeholder */}
               <div className="relative overflow-hidden rounded-xl border border-border bg-gradient-to-br from-secondary/60 to-secondary/30 aspect-video mb-5">
+                {index === 0 && (
+                  <img
+                    src={growthImage}
+                    alt="Prime Skool case growth görseli"
+                    className="absolute inset-0 h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                )}
+                {index === 1 && (
+                  <img
+                    src={redwoodImage}
+                    alt="Prime Skool case redwood görseli"
+                    className="absolute inset-0 h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                )}
+                {index === 2 && (
+                  <img
+                    src={conceptImage}
+                    alt="Prime Skool case concept görseli"
+                    className="absolute inset-0 h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                )}
+
                 {/* Decorative elements */}
                 <div className="absolute inset-0 pointer-events-none">
                   <div className="absolute -top-6 -right-6 w-20 h-20 bg-accent/10 blur-2xl rounded-full" />
                   <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-blue-500/8 blur-2xl rounded-full" />
                 </div>
                 
-                {/* Icon */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-accent/20 to-accent/5 border border-accent/20 flex items-center justify-center group-hover:from-accent/30 group-hover:to-accent/10 transition-all duration-300">
-                      <caseItem.icon className="w-6 h-6 text-accent" />
-                    </div>
-                    <div className="absolute inset-0 blur-lg bg-accent/20 rounded-xl group-hover:bg-accent/30 transition-colors" />
-                  </div>
-                </div>
-
                 {/* ID Badge */}
                 <div className="absolute bottom-2 left-2">
                   <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-background/50 border border-border/50 text-[10px] text-muted-foreground/60">

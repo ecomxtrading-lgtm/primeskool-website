@@ -64,13 +64,6 @@ const Features = () => {
           ))}
         </div>
 
-        {/* IMG-02 Info */}
-        <div className="mt-12 flex justify-center">
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/50 border border-border text-xs text-muted-foreground/60">
-            <span className="w-2 h-2 rounded-full bg-accent/40" />
-            IMG-02 • Duotone ikon seti: muted + accent vurgulu, 6 adet minimal ikon
-          </span>
-        </div>
       </div>
     </section>
   );

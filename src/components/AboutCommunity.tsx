@@ -1,23 +1,26 @@
 import { LayoutDashboard } from "lucide-react";
 import ImagePlaceholder from "./ui/ImagePlaceholder";
+import communityImage from "../../images/comminity.webp";
 
 const AboutCommunity = () => {
   return (
     <section id="about" className="section-spacing">
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Image Placeholder */}
-          <div className="animate-slide-in-left">
-            <ImagePlaceholder
-              id="IMG-05"
-              ratio="4:3"
-              icon={LayoutDashboard}
-              brief="Dark UI mockup (anonim), kartlar, grafikler, chat bubble simgeleri — dashboard + canlı yayın + ekosistem"
-            />
+          {/* Image (mobile/tablet: top, desktop: right) */}
+          <div className="order-1 lg:order-1 animate-slide-in-left">
+            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-lg lg:aspect-[4/3]">
+              <img
+                src={communityImage}
+                alt="Prime Skool community görseli"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
 
           {/* Content */}
-          <div className="space-y-6">
+          <div className="order-2 lg:order-2 space-y-6">
             <div>
               <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">
                 ABOUT US / KOLEKTİF GÜÇ
@@ -32,8 +35,8 @@ const AboutCommunity = () => {
               Prime Skool, yalnızca eğitim izlediğin bir platform değil; aynı yolda yürüyen girişimcilerle birlikte düşündüğün, karar aldığın ve ilerlediğin bir ekosistemdir. Video eğitimler, canlı yayınlar, uygulama şablonları ve paylaşılan deneyimlerle girişimci satıcı refleksini hızlandırır, yalnız kalmanı engeller.
             </p>
 
-            <div className="glass-card p-6">
-              <p className="text-muted-foreground leading-relaxed">
+            <div className="glass-card glass-card-orange p-6 text-white">
+              <p className="leading-relaxed">
                 Sorularını tek başına çözmek zorunda kalmazsın. Haftalık canlı yayınlarda ürün, strateji ve reklam kararlarını masaya yatırırız. Başkalarının yaptığı hatalardan ve yakaladığı fırsatlardan öğrenirsin.
               </p>
             </div>

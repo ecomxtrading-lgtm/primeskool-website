@@ -30,7 +30,7 @@ const SupportProcess = () => {
             <p className="text-accent font-semibold text-sm uppercase tracking-wider">
               SÜREÇTE ASLA YALNIZ DEĞİLSİN
             </p>
-            <h2 className="heading-section">
+            <h2 className="heading-section leading-[1.6]">
               Haftalık canlı yayın:{" "}
               <span className="text-accent">gerçek zamanlı</span> yol haritası
             </h2>

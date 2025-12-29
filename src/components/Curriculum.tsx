@@ -1,6 +1,7 @@
 import { BookOpen, Megaphone, Bot, Palette, Search, FolderOpen, Library } from "lucide-react";
 import DuotoneIcon from "./ui/DuotoneIcon";
 import ImagePlaceholder from "./ui/ImagePlaceholder";
+import educationImage from "../../images/egitim.webp";
 
 const modules = [
   {
@@ -47,7 +48,7 @@ const Curriculum = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-start">
           {/* Content */}
-          <div className="space-y-8">
+          <div className="space-y-8 order-2 lg:order-1">
             <div>
               <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">
                 EĞİTİM İÇERİKLERİ
@@ -79,14 +80,16 @@ const Curriculum = () => {
             </div>
           </div>
 
-          {/* Image Placeholder */}
-          <div className="lg:sticky lg:top-24 animate-slide-in-right">
-            <ImagePlaceholder
-              id="IMG-06"
-              ratio="3:4"
-              icon={Library}
-              brief="Kitap/klasör/stacked cards, checklist, modül blokları — modüller + kaynak kütüphanesi"
-            />
+          {/* Image */}
+          <div className="order-1 lg:order-2 lg:sticky lg:top-24 animate-slide-in-right">
+            <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-lg lg:aspect-[3/4]">
+              <img
+                src={educationImage}
+                alt="Prime Skool eğitim içerikleri görseli"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -7,15 +7,50 @@
 /* 1400px ve üzeri için hero genişlik ayarları */
 @media (min-width: 1400px) {
   .hero-content-wide {
-    max-width: 720px;
+    max-width: 840px;
   }
 
   .hero-image-wide {
-    max-width: 720px;
+    max-width: 820px;
   }
 
   .heading-hero {
-    max-width: 640px;
+    max-width: 880px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    column-gap: 4rem;
+  }
+}
+
+/* Hero image toggle */
+.hero-img-large {
+  display: none;
+}
+.hero-img-small {
+  display: block;
+}
+.hero-img-placeholder {
+  display: none;
+}
+@media (min-width: 1200px) {
+  .hero-img-small {
+    display: none;
+  }
+  .hero-img-placeholder {
+    display: block;
+  }
+}
+@media (min-width: 1400px) {
+  .hero-img-large {
+    display: block;
+  }
+  .hero-img-small {
+    display: none;
+  }
+  .hero-img-placeholder {
+    display: none;
   }
 }
 @layer base {
@@ -100,6 +135,12 @@
     box-shadow: var(--shadow-glass);
   }
   
+  .glass-card-orange {
+    background: linear-gradient(135deg, hsl(28 96% 55% / 0.35), hsl(28 92% 45% / 0.25));
+    border: 1px solid hsl(28 96% 55% / 0.35);
+    box-shadow: var(--shadow-glass), 0 10px 40px hsl(28 96% 55% / 0.2);
+  }
+  
   .glass-card-hover {
     @apply glass-card transition-all duration-300;
   }
@@ -152,16 +193,17 @@
     @apply py-12 md:py-16 lg:py-20;
   }
   
+  /* Başlıklar: satır aralığını belirgin artır */
   .heading-hero {
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[0.95] tracking-tight;
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-[1.4] tracking-tight;
   }
   
   .heading-section {
-    @apply text-3xl sm:text-4xl md:text-5xl font-bold leading-tight tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.5] tracking-tight;
   }
   
   .heading-card {
-    @apply text-xl md:text-2xl font-semibold;
+    @apply text-xl md:text-2xl font-semibold leading-[1.45];
   }
   
   .body-large {
