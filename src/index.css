@@ -4,6 +4,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 1400px ve üzeri için hero genişlik ayarları */
+@media (min-width: 1400px) {
+  .hero-content-wide {
+    max-width: 720px;
+  }
+
+  .hero-image-wide {
+    max-width: 720px;
+  }
+
+  .heading-hero {
+    max-width: 640px;
+  }
+}
 @layer base {
   :root {
     --bg-0: 215 50% 5%;

@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 md:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
-          <div className="space-y-8 animate-fade-in">
+          <div className="space-y-8 animate-fade-in hero-content-wide">
             <h1 className="heading-hero">
               GÜÇLÜ{" "}
               <span className="text-gradient">STRATEJİLER</span>{" "}
@@ -47,7 +47,7 @@ const Hero = () => {
           </div>
 
           {/* Image Placeholder */}
-          <div className="relative animate-slide-in-right" style={{ animationDelay: "0.2s" }}>
+          <div className="relative animate-slide-in-right hero-image-wide" style={{ animationDelay: "0.2s" }}>
             <ImagePlaceholder
               id="IMG-01"
               ratio="4:3"
