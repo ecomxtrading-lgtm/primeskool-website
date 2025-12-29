@@ -63,14 +63,7 @@ const LeadMagnet = () => {
                   </p>
                 </div>
 
-                {/* ID Badge */}
-                <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent/10 border border-accent/20 text-xs font-medium text-accent">
-                    IMG-08
-                    <span className="text-muted-foreground/70">•</span>
-                    <span className="text-muted-foreground/70">3:4</span>
-                  </span>
-                </div>
+                {/* ID Badge removed */}
               </div>
 
               {/* Corner accent */}
