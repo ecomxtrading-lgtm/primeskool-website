@@ -81,12 +81,7 @@ const CaseLibrary = () => {
                   <div className="absolute -bottom-6 -left-6 w-20 h-20 bg-blue-500/8 blur-2xl rounded-full" />
                 </div>
                 
-                {/* ID Badge */}
-                <div className="absolute bottom-2 left-2">
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-md bg-background/50 border border-border/50 text-[10px] text-muted-foreground/60">
-                    IMG-09
-                  </span>
-                </div>
+                {/* ID Badge removed as requested */}
               </div>
 
               <span className="inline-block px-3 py-1 text-xs font-medium bg-accent/10 text-accent rounded-full mb-3">
