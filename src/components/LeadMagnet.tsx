@@ -121,9 +121,7 @@ const LeadMagnet = () => {
                     Ücretsiz E-Kitabı Al
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </button>
-                  <p className="text-xs text-muted-foreground text-center">
-                    Spam yok. Kaynakları tek tıkla gönderiyoruz.
-                  </p>
+                  <p>Spam yok. Kaynakları tek tıkla gönderiyoruz.</p>
                 </form>
               ) : (
                 <div className="text-center p-6 glass-card bg-accent/10">
