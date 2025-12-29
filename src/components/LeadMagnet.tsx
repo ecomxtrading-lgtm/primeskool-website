@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BookOpen, ArrowRight, Check } from "lucide-react";
 import redhearImage from "../../images/redhear.webp";
 import { supabase } from "@/lib/supabase";
@@ -17,6 +17,11 @@ const LeadMagnet = () => {
   const [checkboxError, setCheckboxError] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  useEffect(() => {
+    const urlSet = !!import.meta.env.VITE_SUPABASE_URL;
+    const keySet = !!import.meta.env.VITE_SUPABASE_ANON_KEY;
+    console.log("LeadMagnet mounted. Supabase env set? url:", urlSet, "key:", keySet);
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +34,13 @@ const LeadMagnet = () => {
     setSubmitError(null);
 
     try {
-      console.log("LeadMagnet submit started");
+      console.log("LeadMagnet submit started", {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        kvkkAccepted,
+        commsAccepted,
+      });
 
       if (!supabase) {
         throw new Error("Supabase client yok (env eksik veya yanlış)");
