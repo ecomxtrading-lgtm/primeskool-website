@@ -33,7 +33,7 @@ const Hero = () => {
                 onClick={() => scrollToSection("#consultation")}
                 className="btn-primary group"
               >
-                Yatırım Yapmadan Önce Uzmanla Konuşun
+                Ücretsiz Strateji Görüşmesi
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
               
@@ -42,7 +42,7 @@ const Hero = () => {
                 className="btn-secondary group"
               >
                 <Play className="mr-2 w-4 h-4" />
-                Müfredatı Gör
+                İçerikleri Keşfet
               </button>
             </div>
           </div>

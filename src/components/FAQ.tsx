@@ -40,7 +40,7 @@ const FAQ = () => {
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="heading-section mb-4">
-              FAQ's – Bu eğitim gerçekten bana{" "}
+              SSS – Bu eğitim gerçekten bana{" "}
               <span className="text-accent">uygun mu?</span>
             </h2>
             <p className="body-default text-muted-foreground">

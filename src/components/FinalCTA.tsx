@@ -25,7 +25,7 @@ const FinalCTA = () => {
             </button>
             <button className="btn-secondary group">
               <Calendar className="mr-2 w-5 h-5" />
-              Görüşme Planla
+              Hemen Topluluğa Katıl
             </button>
           </div>
 

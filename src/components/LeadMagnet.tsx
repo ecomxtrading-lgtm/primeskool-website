@@ -118,10 +118,9 @@ const LeadMagnet = () => {
                     className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:border-accent focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
                   />
                   <button type="submit" className="btn-primary w-full group">
-                    Ücretsiz E-Kitabı Al
+                    Ücretsiz Master Class Eğitimini Al
                     <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                  </button>
-                  <p>Spam yok. Kaynakları tek tıkla gönderiyoruz.</p>
+                  </button>                  
                 </form>
               ) : (
                 <div className="text-center p-6 glass-card bg-accent/10">
