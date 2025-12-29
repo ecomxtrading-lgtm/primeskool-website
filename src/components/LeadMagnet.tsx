@@ -33,11 +33,15 @@ const LeadMagnet = () => {
         throw new Error("Supabase client yok (env eksik veya yanlış)");
       }
 
+      // Normalize email/phone
+      const emailNormalized = formData.email.trim().toLowerCase();
+      const phoneNormalized = formData.phone.trim();
+
       // Duplicate kontrolü (email veya phone)
       const { data: existing, error: checkError } = await supabase
         .from("student")
         .select("id")
-        .or(`email.eq.${formData.email},phone.eq.${formData.phone}`)
+        .or(`email.eq.${emailNormalized},phone.eq.${phoneNormalized}`)
         .limit(1);
 
       if (checkError) {
@@ -55,8 +59,8 @@ const LeadMagnet = () => {
 
       const { error } = await supabase.from("student").insert({
         name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
+        email: emailNormalized,
+        phone: phoneNormalized,
         kvkk_accepted: kvkkAccepted,
         comms_accepted: commsAccepted,
       });
