@@ -40,7 +40,7 @@ const Navbar = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="w-full max-w-full px-4 md:px-6">
+      <div className="max-w-6xl mx-auto px-4 md:px-6">
         <div
           className={`flex items-center gap-4 md:gap-6 ${
             isScrolled ? "h-[55px]" : "py-4 md:py-5"
