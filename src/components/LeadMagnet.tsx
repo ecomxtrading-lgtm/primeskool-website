@@ -29,8 +29,10 @@ const LeadMagnet = () => {
     setSubmitError(null);
 
     try {
+      console.log("LeadMagnet submit started");
+
       if (!supabase) {
-        throw new Error("Supabase client yok (env eksik olabilir)");
+        throw new Error("Supabase client yok (env eksik veya yanlış)");
       }
 
       const { error } = await supabase.from("student").insert({
