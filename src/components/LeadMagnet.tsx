@@ -46,6 +46,26 @@ const LeadMagnet = () => {
         throw new Error("Supabase client yok (env eksik veya yanlış)");
       }
 
+      // Duplicate kontrolü (email veya phone)
+      const { data: existing, error: checkError } = await supabase
+        .from("student")
+        .select("id")
+        .or(`email.eq.${formData.email},phone.eq.${formData.phone}`)
+        .limit(1);
+
+      if (checkError) {
+        console.error("Supabase duplicate check error:", checkError);
+        setSubmitError("Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+        setIsSubmitting(false);
+        return;
+      }
+
+      if (existing && existing.length > 0) {
+        setSubmitError("Bu e-posta veya telefon numarası zaten kayıtlı.");
+        setIsSubmitting(false);
+        return;
+      }
+
       const { error } = await supabase.from("student").insert({
         name: formData.name,
         email: formData.email,
@@ -244,7 +264,7 @@ const LeadMagnet = () => {
                   </div>
                   <p className="font-semibold mb-1">Teşekkürler!</p>
                   <p className="text-sm text-muted-foreground">
-                    E-kitap e-posta adresinize gönderildi.
+                    Kaydınız başarı ile tamamlandı. Master Class Eğitim seti bağlantısı size gönderilecek.
                   </p>
                 </div>
               )}
