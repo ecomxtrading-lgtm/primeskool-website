@@ -20,7 +20,7 @@ const FinalCTA = () => {
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button className="btn-primary group">
-              Topluluğa Katıl
+              Ücretsiz Strateji Görüşmesi
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
             <button className="btn-secondary group">
