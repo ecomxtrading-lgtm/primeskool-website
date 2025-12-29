@@ -64,7 +64,21 @@ const Navbar = () => {
           </a>
 
           {/* Desktop Menu */}
-
+          <div className="hidden md:flex items-center gap-8 ml-6">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.href);
+                }}
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
           {/* CTA Button */}
           <a
             href="#consultation"
