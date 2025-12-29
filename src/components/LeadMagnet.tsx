@@ -6,7 +6,7 @@ const LeadMagnet = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    whatsapp: "",
+    phone: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [kvkkAccepted, setKvkkAccepted] = useState(false);
@@ -119,11 +119,12 @@ const LeadMagnet = () => {
                   />
                   <input
                     type="tel"
-                    placeholder="WhatsApp (opsiyonel)"
-                    value={formData.whatsapp}
+                    placeholder="Telefon"
+                    value={formData.phone}
                     onChange={(e) =>
-                      setFormData({ ...formData, whatsapp: e.target.value })
+                      setFormData({ ...formData, phone: e.target.value })
                     }
+                    required
                     className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:border-accent focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
                   />
               <div className="space-y-3">
