@@ -38,7 +38,7 @@ const SupportProcess = () => {
               Prime Skool topluluğunda sorunlar tek başına taşınmaz. Haftalık canlı yayınlar ve topluluk içi paylaşımlar sayesinde; ürün, reklam, listeleme ve strateji konuları ortak akılla ele alınır. Burada amaç yalnızca cevap bulmak değil, topluluğun deneyimlerinden beslenerek doğru karar alma refleksini birlikte geliştirmektir.
             </p>
             <div className="glass-card glass-card-orange p-6 text-white max-w-2xl mx-auto">
-              <p className="text-muted-foreground italic">
+              <p className="text-white italic">
                 "'Neyi yaptık?'tan çok 'neden bunu yaptık?' sorusuna odaklanırız. Ürün, kreatif, reklam ya da stratejiyle ilgili fikirlerini canlı yayında netleştirirsin."
               </p>
             </div>
