@@ -23,7 +23,7 @@ const AboutCommunity = () => {
           <div className="order-2 lg:order-2 space-y-6">
             <div>
               <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-4">
-                ABOUT US / KOLEKTİF GÜÇ
+                KOLEKTİF GÜÇ
               </p>
               <h2 className="heading-section mb-6">
                 Tek başına değil: aynı hedefe bakan bir{" "}
@@ -36,7 +36,7 @@ const AboutCommunity = () => {
             </p>
 
             <div className="glass-card glass-card-orange p-6 text-white">
-              <p className="leading-relaxed">
+              <p className="leading-relaxed text-white">
                 Sorularını tek başına çözmek zorunda kalmazsın. Haftalık canlı yayınlarda ürün, strateji ve reklam kararlarını masaya yatırırız. Başkalarının yaptığı hatalardan ve yakaladığı fırsatlardan öğrenirsin.
               </p>
             </div>
