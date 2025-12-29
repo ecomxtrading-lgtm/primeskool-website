@@ -60,9 +60,9 @@ const LeadMagnet = () => {
                 </div>
 
                 <div className="text-center space-y-3">
-                  <p className="text-xs font-medium text-accent uppercase tracking-wider">
-                    Ücretsiz E-Kitap
-                  </p>
+                <p className="text-xs font-medium text-accent uppercase tracking-wider">
+                  ÜCRETSİZ MASTER CLASS EĞİTİMİ
+                </p>
                   <h4 className="text-lg font-bold text-foreground leading-tight">
                     Platform Üstü Satıcı<br />Nasıl Olunur?
                   </h4>
@@ -85,7 +85,7 @@ const LeadMagnet = () => {
             <div className="space-y-6">
               <div>
                 <p className="text-accent font-semibold text-sm uppercase tracking-wider mb-2">
-                  ÜCRETSİZ E-KİTAP
+                  ÜCRETSİZ MASTER CLASS EĞİTİMİ
                 </p>
                 <h3 className="heading-card mb-2">
                   Platform üstü satıcı nasıl olunur?
