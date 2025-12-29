@@ -28,15 +28,27 @@ const LeadMagnet = () => {
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const { error } = await supabase.from("student").insert({
-      name: formData.name,
-      email: formData.email,
-      phone: formData.phone,
-      kvkk_accepted: kvkkAccepted,
-      comms_accepted: commsAccepted,
-    });
+    try {
+      if (!supabase) {
+        throw new Error("Supabase client yok (env eksik olabilir)");
+      }
 
-    if (error) {
+      const { error } = await supabase.from("student").insert({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        kvkk_accepted: kvkkAccepted,
+        comms_accepted: commsAccepted,
+      });
+
+      if (error) {
+        console.error("Supabase insert error:", error);
+        setSubmitError("Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+        setIsSubmitting(false);
+        return;
+      }
+    } catch (err: any) {
+      console.error("Supabase insert exception:", err);
       setSubmitError("Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.");
       setIsSubmitting(false);
       return;
