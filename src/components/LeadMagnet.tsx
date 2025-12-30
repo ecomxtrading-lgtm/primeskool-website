@@ -80,7 +80,11 @@ const LeadMagnet = () => {
 
       if (error) {
         console.error("Supabase insert error:", error);
-        setSubmitError("Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+        if (error.code === "23505") {
+          setSubmitError("Bu e-posta veya telefon numarası sistemde kayıtlı.");
+        } else {
+          setSubmitError("Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+        }
         setIsSubmitting(false);
         return;
       }
