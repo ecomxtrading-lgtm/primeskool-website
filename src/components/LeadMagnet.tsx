@@ -37,39 +37,37 @@ const LeadMagnet = () => {
       const emailNormalized = formData.email.trim().toLowerCase();
       const phoneNormalized = formData.phone.trim();
 
-      // Duplicate kontrolü (email ve telefon ayrı ayrı değerlendirilir)
-      const { data: existing, error: checkError } = await supabase
-        .from("student")
-        .select("email, phone")
-        .or(`email.eq.${emailNormalized},phone.eq.${phoneNormalized}`)
-        .limit(5);
+      // Duplicate kontrolü (email ve telefon ayrı sorgulanır)
+      const [{ data: emailExisting, error: emailError }, { data: phoneExisting, error: phoneError }] =
+        await Promise.all([
+          supabase.from("student").select("id").eq("email", emailNormalized).limit(1),
+          supabase.from("student").select("id").eq("phone", phoneNormalized).limit(1),
+        ]);
 
-      if (checkError) {
-        console.error("Supabase duplicate check error:", checkError);
+      if (emailError || phoneError) {
+        console.error("Supabase duplicate check error:", emailError || phoneError);
         setSubmitError("Gönderim sırasında bir hata oluştu. Lütfen tekrar deneyin.");
         setIsSubmitting(false);
         return;
       }
 
-      if (existing && existing.length > 0) {
-        const emailMatch = existing.some((row) => row.email?.toLowerCase() === emailNormalized);
-        const phoneMatch = existing.some((row) => row.phone === phoneNormalized);
+      const emailMatch = emailExisting && emailExisting.length > 0;
+      const phoneMatch = phoneExisting && phoneExisting.length > 0;
 
-        if (emailMatch && phoneMatch) {
-          setSubmitError("Bu e-posta ve telefon numarası sistemde kayıtlı.");
-          setIsSubmitting(false);
-          return;
-        }
-        if (emailMatch) {
-          setSubmitError("Bu e-posta adresi sistemde kayıtlı.");
-          setIsSubmitting(false);
-          return;
-        }
-        if (phoneMatch) {
-          setSubmitError("Bu telefon numarası sistemde kayıtlı.");
-          setIsSubmitting(false);
-          return;
-        }
+      if (emailMatch && phoneMatch) {
+        setSubmitError("Bu e-posta ve telefon numarası sistemde kayıtlı.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (emailMatch) {
+        setSubmitError("Bu e-posta adresi sistemde kayıtlı.");
+        setIsSubmitting(false);
+        return;
+      }
+      if (phoneMatch) {
+        setSubmitError("Bu telefon numarası sistemde kayıtlı.");
+        setIsSubmitting(false);
+        return;
       }
 
       const { error } = await supabase.from("student").insert({
