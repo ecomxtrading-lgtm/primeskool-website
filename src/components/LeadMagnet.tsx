@@ -200,11 +200,14 @@ const LeadMagnet = () => {
                   />
                   <input
                     type="tel"
+                    inputMode="numeric"
+                    pattern="\d*"
                     placeholder="Telefon"
                     value={formData.phone}
-                    onChange={(e) =>
-                      setFormData({ ...formData, phone: e.target.value })
-                    }
+                    onChange={(e) => {
+                      const onlyDigits = e.target.value.replace(/\D/g, "");
+                      setFormData({ ...formData, phone: onlyDigits });
+                    }}
                     required
                     className="w-full px-4 py-3 rounded-xl bg-secondary/50 border border-border focus:border-accent focus:outline-none transition-colors text-foreground placeholder:text-muted-foreground"
                   />
