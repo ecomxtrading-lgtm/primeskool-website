@@ -202,10 +202,11 @@ const LeadMagnet = () => {
                     type="tel"
                     inputMode="numeric"
                     pattern="\d*"
+                    maxLength={13}
                     placeholder="Telefon"
                     value={formData.phone}
                     onChange={(e) => {
-                      const onlyDigits = e.target.value.replace(/\D/g, "");
+                      const onlyDigits = e.target.value.replace(/\D/g, "").slice(0, 13);
                       setFormData({ ...formData, phone: onlyDigits });
                     }}
                     required
