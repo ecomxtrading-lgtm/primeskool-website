@@ -35,7 +35,14 @@ const LeadMagnet = () => {
 
       // Normalize email/phone
       const emailNormalized = formData.email.trim().toLowerCase();
-      const phoneNormalized = formData.phone.trim();
+      const digits = formData.phone.replace(/\D/g, "");
+      let phoneNormalized = digits;
+      if (phoneNormalized.startsWith("90") && phoneNormalized.length > 10) {
+        phoneNormalized = phoneNormalized.slice(2);
+      }
+      if (phoneNormalized.startsWith("0") && phoneNormalized.length > 10) {
+        phoneNormalized = phoneNormalized.slice(1);
+      }
 
       // Duplicate kontrolü (email ve telefon ayrı sorgulanır)
       const [{ data: emailExisting, error: emailError }, { data: phoneExisting, error: phoneError }] =
