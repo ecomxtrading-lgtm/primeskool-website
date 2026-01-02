@@ -5,6 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Gizlilik from "./pages/Gizlilik";
+import HizmetSartlari from "./pages/HizmetSartlari";
+import VeriSilme from "./pages/VeriSilme";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +19,9 @@ const App = () => (
       <HashRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/gizlilik" element={<Gizlilik />} />
+          <Route path="/hizmet-sartlari" element={<HizmetSartlari />} />
+          <Route path="/veri-silme" element={<VeriSilme />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

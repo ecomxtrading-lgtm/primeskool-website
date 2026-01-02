@@ -9,8 +9,9 @@ const footerLinks = [
 ];
 
 const legalLinks = [
-  { label: "Gizlilik Politikası", href: "#" },
-  { label: "Çerez Politikası", href: "#" },
+  { label: "Gizlilik Politikası", href: "#/gizlilik" },
+  { label: "Hizmet Şartları", href: "#/hizmet-sartlari" },
+  { label: "Kullanıcı Verilerinin Silinmesi", href: "#/veri-silme" },
 ];
 
 const Footer = () => {
