@@ -6,7 +6,7 @@ const Gizlilik = () => {
       title="Gizlilik Politikası"
       content={
         <>
-          <p>Son güncelleme: [tarih ekleyebilirsin]</p>
+          <p>Son güncelleme: 02.11.2025</p>
           <p>
             Bu gizlilik politikası, PrimeSkool (“biz”, “platform”, “hizmet”) tarafından
             işletilen web sitesi ve bu site üzerinden sunulan hizmetler kapsamında toplanan

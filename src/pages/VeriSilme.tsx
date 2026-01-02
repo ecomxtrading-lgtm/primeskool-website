@@ -6,7 +6,7 @@ const VeriSilme = () => {
       title="Kullanıcı Verilerinin Silinmesi"
       content={
         <>
-          <p>Son güncelleme: [tarih ekleyebilirsin]</p>
+          <p>Son güncelleme: 02.11.2025</p>
           <p>
             PrimeSkool, kullanıcı gizliliğine önem verir ve kişisel verilerin korunmasına
             ilişkin yürürlükteki mevzuata uygun hareket eder. Bu sayfa, PrimeSkool tarafından

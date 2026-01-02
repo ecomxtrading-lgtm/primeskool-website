@@ -6,7 +6,7 @@ const HizmetSartlari = () => {
       title="Hizmet Şartları"
       content={
         <>
-          <p>Son güncelleme: [tarih ekleyebilirsin]</p>
+          <p>Son güncelleme: 02.11.2025</p>
           <p>
             Bu Hizmet Şartları, PrimeSkool (“platform”, “biz”) tarafından sunulan eğitim
             içerikleri, dijital hizmetler ve bunlara bağlı iletişim araçlarının kullanımına
