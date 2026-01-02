@@ -26,7 +26,7 @@ const PolicyPage = ({ title, content }: PolicyPageProps) => {
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight">{title}</h1>
         </div>
 
-        <div className="prose prose-invert max-w-none text-muted-foreground leading-relaxed prose-h3:text-white prose-h3:font-semibold">
+        <div className="prose prose-invert max-w-none text-muted-foreground leading-relaxed prose-h3:text-white prose-h3:font-semibold prose-h3:mt-6">
           {content}
         </div>
       </div>
